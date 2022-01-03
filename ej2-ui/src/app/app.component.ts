@@ -35,24 +35,24 @@ export class AppComponent {
     this.data = virtualData;
     this.toolbar = ['ColumnChooser'];
     let headerMenu = [
-      { text: 'Edit Column', target: '.e-headercontent', id: 'edit' },
-      { text: 'New Column', target: '.e-headercontent', id: 'edit' },
-      { text: 'Delete Column', target: '.e-headercontent', id: 'edit' },
-      { text: 'Choose Column', target: '.e-headercontent', id: 'edit' },
-      { text: 'Freeze Column', target: '.e-headercontent', id: 'edit' },
-      { text: 'Filter Column', target: '.e-headercontent', id: 'edit' },
-      { text: 'Multisort Column', target: '.e-headercontent', id: 'edit' },
+      { text: 'Edit Column', target: '.e-headercontent', id: 'col_edit' },
+      { text: 'New Column', target: '.e-headercontent', id: 'col_new' },
+      { text: 'Delete Column', target: '.e-headercontent', id: 'col_del' },
+      { text: 'Choose Column', target: '.e-headercontent', id: 'col_choose' },
+      { text: 'Freeze Column', target: '.e-headercontent', id: 'col_freeze' },
+      { text: 'Filter Column', target: '.e-headercontent', id: 'col_filter' },
+      { text: 'Multisort Column', target: '.e-headercontent', id: 'col_multisort' },
     ];
     let rowMenu = [
-      { text: 'Add Next', target: '.e-content', id: 'collapserow' },
-      { text: 'Add Child', target: '.e-content', id: 'collapserow' },
-      { text: 'Delete Row', target: '.e-content', id: 'collapserow' },
-      { text: 'Edit Row', target: '.e-content', id: 'collapserow' },
-      { text: 'Multi Select', target: '.e-content', id: 'collapserow' },
-      { text: 'Copy Rows', target: '.e-content', id: 'collapserow' },
-      { text: 'Cut Rows', target: '.e-content', id: 'collapserow' },
-      { text: 'Paste Next', target: '.e-content', id: 'collapserow' },
-      { text: 'Paste Child', target: '.e-content', id: 'collapserow' },
+      { text: 'Add Next', target: '.e-content', id: 'row_addnext' },
+      { text: 'Add Child', target: '.e-content', id: 'row_addchild' },
+      { text: 'Delete Row', target: '.e-content', id: 'row_delete' },
+      { text: 'Edit Row', target: '.e-content', id: 'row_edit' },
+      { text: 'Multi Select', target: '.e-content', id: 'row_multiselect' },
+      { text: 'Copy Rows', target: '.e-content', id: 'row_copyrows' },
+      { text: 'Cut Rows', target: '.e-content', id: 'row_cutrows' },
+      { text: 'Paste Next', target: '.e-content', id: 'row_pasterows' },
+      { text: 'Paste Child', target: '.e-content', id: 'row_pastechild' },
     ];
     this.contextMenuItems = [...headerMenu, ...rowMenu];
   }
@@ -125,5 +125,14 @@ export class AppComponent {
     } else if (args.item.id === 'expandall') {
       this.treegrid.expandAll();
     }
+    //row event
+    else if (args.item.id === 'row_edit') {
+       //contenteditable='true'
+       const selectedrow = this.treegrid.getSelectedRecords()[0];
+    }
+    //column events
+    else if (args.item.id === 'col_edit') {
+      //contenteditable='true'
+   }
   }
 }
