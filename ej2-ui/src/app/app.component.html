@@ -7,6 +7,9 @@
   [treeColumnIndex]="1"
   [showColumnChooser]="true"
   [toolbar]="toolbar"
+  [contextMenuItems]="contextMenuItems"
+  (contextMenuOpen)="contextMenuOpen($event)"
+  (contextMenuClick)="contextMenuClick($event)"
 >
   <e-columns>
     <e-column
