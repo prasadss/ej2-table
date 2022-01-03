@@ -8,11 +8,14 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --aot --prod "
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.2",
+    "@angular/cli": "~10.0.1",
+    "@angular/compiler-cli": "~10.0.2",
     "@angular/common": "~10.0.2",
     "@angular/compiler": "~10.0.2",
     "@angular/core": "~10.0.2",
@@ -23,6 +26,7 @@
     "@syncfusion/ej2-angular-treegrid": "^19.4.40",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
+    "typescript": "~3.9.5",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
