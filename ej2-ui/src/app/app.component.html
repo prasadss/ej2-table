@@ -1,9 +1,38 @@
-<ejs-treegrid #treegrid [dataSource]='data' [enableVirtualization]=true height=700 childMapping='Crew' [treeColumnIndex]='1' >
+<ejs-treegrid
+  #treegrid
+  [dataSource]="data"
+  [enableVirtualization]="true"
+  height="700"
+  childMapping="Crew"
+  [treeColumnIndex]="1"
+  [showColumnChooser]="true"
+  [toolbar]="toolbar"
+>
   <e-columns>
-      <e-column field='TaskID' headerText='Player Jersey' width='120' textAlign='Right'></e-column>
-      <e-column field='FIELD1' headerText='Player Name' width='120'></e-column>
-      <e-column field='FIELD2' headerText='Year' width='100' textAlign='Right'></e-column>
-      <e-column field='FIELD3' headerText='Stint' width='120' textAlign='Right'></e-column>
-      <e-column field='FIELD4' headerText='TMID' width='120' textAlign='Right'></e-column>
+    <e-column
+      field="TaskID"
+      headerText="Player Jersey"
+      width="120"
+      textAlign="Right"
+    ></e-column>
+    <e-column field="FIELD1" headerText="Player Name" width="120"></e-column>
+    <e-column
+      field="FIELD2"
+      headerText="Year"
+      width="100"
+      textAlign="Right"
+    ></e-column>
+    <e-column
+      field="FIELD3"
+      headerText="Stint"
+      width="120"
+      textAlign="Right"
+    ></e-column>
+    <e-column
+      field="FIELD4"
+      headerText="TMID"
+      width="120"
+      textAlign="Right"
+    ></e-column>
   </e-columns>
 </ejs-treegrid>
