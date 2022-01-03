@@ -1,5 +1,7 @@
-const winston = require("winston");
-const express = require("express");
+import winston from "winston";
+import express from "express";
+import routes from "./startup/routes";
+
 if (require.main === module) {
   initApp();
 }
@@ -12,7 +14,7 @@ function initApp() {
 }
 
 function mountRoutes(app) {
-  require("./startup/routes")(app);
+  routes(app);
 }
 
 function handleGloablExceptions() {

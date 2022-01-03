@@ -1,9 +1,9 @@
-const express = require("express");
-const router = require("../routes");
-const error = require("../middleware/error");
-const helmet = require("helmet");
+import express from "express";
+import router from "../routes";
+import error from "../middleware/error";
+import helmet from "helmet";
 
-module.exports = function (app) {
+export default function (app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static("./public"));
@@ -11,4 +11,4 @@ module.exports = function (app) {
   app.use(express.json());
   app.use("/api", router);
   app.use(error);
-};
+}

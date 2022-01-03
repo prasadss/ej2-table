@@ -1,5 +1,7 @@
-const winston = require("winston");
+import winston from "winston";
+
 function ErrorHandling(err, req, res, next) {
   winston.error(err.message, err);
 }
-module.exports = ErrorHandling;
+
+export default ErrorHandling
