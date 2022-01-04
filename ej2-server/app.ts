@@ -1,7 +1,7 @@
 import winston from "winston";
 import express from "express";
 import routes from "./startup/routes";
-
+import db from "./service/db.services";
 if (require.main === module) {
   initApp();
 }
