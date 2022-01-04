@@ -11,6 +11,8 @@ import { MenuEventArgs } from '@syncfusion/ej2-navigations';
 import { getValue, isNullOrUndefined } from '@syncfusion/ej2-base';
 import { BeforeOpenCloseEventArgs } from '@syncfusion/ej2-inputs';
 import { ColumnService } from '../services/column.service';
+import { PopupComponent } from './component/popup/popup.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,13 +28,15 @@ export class AppComponent {
   title = 'ej2-ui';
   @ViewChild('treegrid')
   public treegrid: TreeGridComponent;
+  @ViewChild(PopupComponent) child: PopupComponent;
+
   public data: Object[];
   public toolbar: string[];
   public contextMenuItems: Object;
   columns: Object[];
 
   constructor(columnService: ColumnService) {
-    columnService.getColumns().subscribe((x: Object[]) => {      
+    columnService.getColumns().subscribe((x: Object[]) => {
       this.columns = x;
     });
   }
@@ -118,29 +122,37 @@ export class AppComponent {
     // }
   }
   contextMenuClick(args?: MenuEventArgs): void {
-    if (args.item.id === 'collapserow') {
-      this.treegrid.collapseRow(
-        this.treegrid.getSelectedRows()[0] as HTMLTableRowElement,
-        this.treegrid.getSelectedRecords()[0]
-      );
-    } else if (args.item.id === 'expandrow') {
-      this.treegrid.expandRow(
-        this.treegrid.getSelectedRows()[0] as HTMLTableRowElement,
-        this.treegrid.getSelectedRecords()[0]
-      );
-    } else if (args.item.id === 'collapseall') {
-      this.treegrid.collapseAll();
-    } else if (args.item.id === 'expandall') {
-      this.treegrid.expandAll();
+    switch (args.item.id) {
+      case 'col_new':
+        this.child.onOpenDialog(args.item.id);
+        break;
+
+      default:
+        break;
     }
-    //row event
-    else if (args.item.id === 'row_edit') {
-      //contenteditable='true'
-      const selectedrow = this.treegrid.getSelectedRecords()[0];
-    }
-    //column events
-    else if (args.item.id === 'col_edit') {
-      //contenteditable='true'
-    }
+    // if (args.item.id === 'collapserow') {
+    //   this.treegrid.collapseRow(
+    //     this.treegrid.getSelectedRows()[0] as HTMLTableRowElement,
+    //     this.treegrid.getSelectedRecords()[0]
+    //   );
+    // } else if (args.item.id === 'expandrow') {
+    //   this.treegrid.expandRow(
+    //     this.treegrid.getSelectedRows()[0] as HTMLTableRowElement,
+    //     this.treegrid.getSelectedRecords()[0]
+    //   );
+    // } else if (args.item.id === 'collapseall') {
+    //   this.treegrid.collapseAll();
+    // } else if (args.item.id === 'expandall') {
+    //   this.treegrid.expandAll();
+    // }
+    // //row event
+    // else if (args.item.id === 'row_edit') {
+    //   //contenteditable='true'
+    //   const selectedrow = this.treegrid.getSelectedRecords()[0];
+    // }
+    // //column events
+    // else if (args.item.id === 'col_edit') {
+    //   //contenteditable='true'
+    // }
   }
 }

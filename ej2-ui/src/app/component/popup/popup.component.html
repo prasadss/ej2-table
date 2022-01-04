@@ -1,0 +1,13 @@
+<ejs-dialog
+  id="dialog"
+  #ejDialog
+  [visible]="visible"
+  isModal="true"
+  (overlayClick)="onOverlayClick()"
+  [target]="targetElement"
+  width="250px"
+>
+  <ng-container [ngSwitch]="type">
+    <app-column-form *ngSwitchCase="'col_new'"></app-column-form>
+  </ng-container>
+</ejs-dialog>
