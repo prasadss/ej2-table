@@ -12,7 +12,15 @@
   (contextMenuClick)="contextMenuClick($event)"
 >
   <e-columns>
-    <e-column
+    <ng-container *ngFor="let column of columns">
+      <e-column
+        field="{{ column.field }}"
+        headerText="{{ column.name }}"
+        width="120"
+        textAlign="Right"
+      ></e-column>
+    </ng-container>
+    <!-- <e-column
       field="TaskID"
       headerText="Player Jersey"
       width="120"
@@ -36,6 +44,6 @@
       headerText="TMID"
       width="120"
       textAlign="Right"
-    ></e-column>
+    ></e-column> -->
   </e-columns>
 </ejs-treegrid>

@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import _ from "lodash";
 import db from "../../service/db.services";
-import validateInsert from "./column.validator";
+import validateInsert, { validateUpdate } from "./column.validator";
 import { nanoid } from "nanoid";
 const router = express.Router();
 
@@ -29,7 +29,7 @@ router.post("/", async (req: Request, res: Response) => {
 
 router.put("/", async (req: Request, res: Response) => {
   let data = req.body;
-  const { error } = validateInsert(req.body);
+  const { error } = validateUpdate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   let columns = db.getColumns();
 

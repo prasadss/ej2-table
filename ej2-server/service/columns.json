@@ -1,1 +1,1 @@
-[{"name":"Name","field":"Name","type":"string","default_value":"","_id":"q_TTMDSkNU4CHiD2G8nKb","order_id":0}]
+[{"name":"ID","field":"TaskID","type":"string","default_value":1,"_id":"q_TTMDSkNU4CHiD2G8nKb","order_id":0},{"name":"Year","field":"FIELD2","type":"string","default_value":1,"_id":"76VE0ifp0GW7mdWVw2pw2","order_id":1},{"name":"Stint","field":"FIELD3","type":"string","default_value":1,"_id":"cYAtqSDUtgCgjKWPKQDs4","order_id":2},{"name":"TMID","field":"FIELD4","type":"string","default_value":1,"_id":"TklrzAmgg-xegvAO6GdXi","order_id":3}]

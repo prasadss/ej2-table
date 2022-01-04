@@ -10,7 +10,7 @@ import { dataSource, virtualData } from './datasource';
 import { MenuEventArgs } from '@syncfusion/ej2-navigations';
 import { getValue, isNullOrUndefined } from '@syncfusion/ej2-base';
 import { BeforeOpenCloseEventArgs } from '@syncfusion/ej2-inputs';
-
+import { ColumnService } from '../services/column.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,7 +29,13 @@ export class AppComponent {
   public data: Object[];
   public toolbar: string[];
   public contextMenuItems: Object;
+  columns: Object[];
 
+  constructor(columnService: ColumnService) {
+    columnService.getColumns().subscribe((x: Object[]) => {      
+      this.columns = x;
+    });
+  }
   ngOnInit(): void {
     dataSource();
     this.data = virtualData;
@@ -41,7 +47,11 @@ export class AppComponent {
       { text: 'Choose Column', target: '.e-headercontent', id: 'col_choose' },
       { text: 'Freeze Column', target: '.e-headercontent', id: 'col_freeze' },
       { text: 'Filter Column', target: '.e-headercontent', id: 'col_filter' },
-      { text: 'Multisort Column', target: '.e-headercontent', id: 'col_multisort' },
+      {
+        text: 'Multisort Column',
+        target: '.e-headercontent',
+        id: 'col_multisort',
+      },
     ];
     let rowMenu = [
       { text: 'Add Next', target: '.e-content', id: 'row_addnext' },
@@ -58,9 +68,7 @@ export class AppComponent {
   }
 
   contextMenuOpen(arg?: BeforeOpenCloseEventArgs): void {
-
     // to show hide menu condition based
-
     // let elem: Element = arg.event.target as Element;
     // let row: Element = elem.closest('.e-row');
     // let uid: string = row && row.getAttribute('data-uid');
@@ -127,12 +135,12 @@ export class AppComponent {
     }
     //row event
     else if (args.item.id === 'row_edit') {
-       //contenteditable='true'
-       const selectedrow = this.treegrid.getSelectedRecords()[0];
+      //contenteditable='true'
+      const selectedrow = this.treegrid.getSelectedRecords()[0];
     }
     //column events
     else if (args.item.id === 'col_edit') {
       //contenteditable='true'
-   }
+    }
   }
 }
